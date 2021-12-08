@@ -8,9 +8,10 @@ class TQueue
 	int Head, Tail;
 	int CountEl;
 
+public:
 	TQueue(int size = 10) {
 		if (size < 0)
-			throw "Can't create queue with negative size";
+			throw gcnew System::Exception("Can't create queue with negative size");
 
 		MaxSize = size;
 		Array = new T[MaxSize];
@@ -23,14 +24,14 @@ class TQueue
 		delete[] Array;
 	}
 
-	IsEmpty() {
+	bool IsEmpty() {
 		if (CountEl == 0)
 			return true;
 		return false;
 	}
 
-	IsFull() {
-		if (CountEl == Maxsize - 1)
+	bool IsFull() {
+		if (CountEl == MaxSize)
 			return true;
 		return false;
 	}
@@ -42,7 +43,7 @@ class TQueue
 			CountEl++;
 		}			
 		else
-			throw "Queue is full";
+			throw gcnew System::Exception("Queue is full");
 	}
 
 	T Pop() {
@@ -53,9 +54,19 @@ class TQueue
 			return res;
 		}
 		else
-			throw "Queue is empty";			
+			throw gcnew System::Exception("Queue is empty");
 	}
 
-	//тесты: могу создать + размера, не могу -, могу добавить, извлечь, если полон/пуст - не могу
+	int GetHead() {
+		return Head;
+	}
+
+	int GetMaxSize() {
+		return MaxSize;
+	}
+
+	int GetSize() {
+		return CountEl;
+	}
 
 };
