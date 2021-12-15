@@ -1,8 +1,6 @@
 #include "../Queue/TQueue.h"
 #include "gtest.h"
 
-//тесты: могу создать + размера, не могу -, могу добавить, извлечь, если полон/пуст - не могу
-
 TEST(TQueue, can_create_queue_with_positive_size)
 {
 	ASSERT_NO_THROW(TQueue<int>(5));
